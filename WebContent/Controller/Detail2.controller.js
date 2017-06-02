@@ -62,7 +62,7 @@ sap.ui.controller("com.test.Controller.Detail2", {
 			var page = this.oView.byId("dd");
 			page.removeAllContent();
 			if(val == undefined){
-				this.getDefaultData(undefined,that);
+			//	this.getDefaultData(undefined,that);
 			}
 			
 			if(val){
