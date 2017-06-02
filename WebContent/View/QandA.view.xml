@@ -2,7 +2,9 @@
 		controllerName="com.test.Controller.QandA" xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Question and Answers" showNavButton="true" navButtonPress="handleBackButton">
 		<content>
-	
+			<List id="idListQuestion"
+								mode="SingleSelectMaster" itemPress="handleList">
+            </List>								
 		</content>
 	</Page>
 </core:View>

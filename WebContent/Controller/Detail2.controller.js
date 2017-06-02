@@ -28,7 +28,7 @@ sap.ui.controller("com.test.Controller.Detail2", {
 							}*/
 							oRouter.navTo("Questions",
 								{obj1:modelData.SalesOrder[0].key,
-								 obj2:"2"
+								 obj2: evt.getSource().getHeader()
 								}
 							);
 						},
@@ -72,9 +72,16 @@ sap.ui.controller("com.test.Controller.Detail2", {
 					for(i;i<length;i++){
 							tile=new sap.m.GenericTile({
 								header:modelData.SalesOrder[val].drill[i].theory,
-								press:function(){
+								press:function(evt){
 									var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
-									oRouter.navTo("Questions");
+									/*var obj = {
+											key1 : modelData.SalesOrder[0].key
+									}*/
+									oRouter.navTo("Questions",
+										{obj1:modelData.SalesOrder[0].key,
+										 obj2: evt.getSource().getHeader()
+										}
+									);
 								},
 								tileContent:{
 									unit:"",

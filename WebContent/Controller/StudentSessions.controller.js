@@ -15,7 +15,7 @@ sap.ui.controller("com.test.Controller.StudentSessions", {
 		//oModel.loadData("json/test.json");
 		oModel.setData(oModel.loadData("json/test.json"),"model");
 		//sap.ui.getCore().setModel(oModel.loadData("json/test.json"),"Jmodel");
-		debugger;
+		
 		oModel.attachRequestCompleted(function(){
 			console.log(oModel.getData());
 			that.getView().setModel(oModel);

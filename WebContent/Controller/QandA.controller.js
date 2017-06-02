@@ -11,9 +11,32 @@ sap.ui.controller("com.test.Controller.QandA", {
 	},
 	_onObjectMatched: function(oEvent){
 		var that=this;
-		var val = oEvent.mParameters.arguments.key;
+		var key = oEvent.mParameters.arguments.obj1;
+		var val = oEvent.mParameters.arguments.obj2;
+		var listId=this.getView().byId('idListQuestion');
 		var model=sap.ui.getCore().getModel();
 		var modelData=model.getData();
+		
+		var i=0,j=0,len=modelData.SalesOrder.length;
+		for(i;i<len;i++){
+			if(modelData.SalesOrder[i].key == key){
+				
+				for(j;j<modelData.SalesOrder[i].drill.length;j++){
+					if(modelData.SalesOrder[i].drill[j].theory == val){
+						 var oItemSelectTemplate = new sap.m.StandardListItem({
+				               
+				               title: "{question}",
+				               type : sap.m.ListType.Navigation
+				              
+				           });
+
+						 listId.setModel(model);
+						 listId.bindAggregation("items", "/SalesOrder/"+key+"/drill/"+j+"/questions", oItemSelectTemplate);
+						// model.refresh();
+					}
+				}
+			}
+		}
 	},
 	handleBackButton: function(){
 		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
