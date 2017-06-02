@@ -1,0 +1,26 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.test.Controller.StudentSessions" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Crack The Toughest" showNavButton="true" navButtonPress="onPressStudentDetailsBack">
+		<content>
+			<SplitApp initialDetail="detail" initialMaster="master" >
+				<detailPages>
+					<mvc:XMLView viewName="com.test.View.folder.Detail2" id="detail">
+                  </mvc:XMLView>
+				</detailPages>
+				<masterPages>
+					<Page title="Courses offered">
+						<content>
+							<List id="idListCourse"
+								mode="SingleSelectMaster" itemPress="handleList">
+								
+						   </List>
+							
+						</content>
+					</Page>
+				</masterPages>
+			
+			
+			</SplitApp>
+		</content>
+	</Page>
+</core:View>

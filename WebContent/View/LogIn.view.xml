@@ -1,0 +1,92 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+		controllerName="com.test.Controller.LogIn" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Log In" floatingFooter="true" showFooter="true">
+		<headerContent>
+<Button icon="sap-icon://background" tooltip="Change BackGround Wallpaper" press="onPressChangeBG"/>
+</headerContent>
+		<content>
+		<f:SimpleForm id="view.Login.Login"
+                   class="login loginbox"
+                   minWidth="1024"
+                   maxContainerCols="2"
+                   editable="false"
+                   layout="ResponsiveGridLayout"
+                   labelSpanL="2"
+                   labelSpanM="2"
+                   emptySpanL="1"
+                   emptySpanM="1"
+                   columnsL="1"
+                   columnsM="1">
+
+    <f:content >
+      
+     		<HBox justifyContent="Center" alignItems="Center">
+     			
+					<RadioButton groupName="g1" id="RB1-1" text="Parent Log In"/>
+					<RadioButton groupName="g1" id="RB1-2" text="Student Log In" />
+				
+     		
+     		</HBox>
+        
+				
+			
+			
+			
+			
+			<Label text="Username">
+			<layoutData>
+                      <l:GridData span="L4 M4 S12" />
+                    </layoutData>
+				
+			</Label>
+			<Input>
+			<layoutData>
+                      <l:GridData span="L4 M4 S12" />
+                    </layoutData>
+			</Input>
+			
+			<Label text="Password">
+			<layoutData>
+                      <l:GridData span="L4 M4 S12" linebreak="true" />
+                    </layoutData>
+				
+			</Label>
+			<Input>
+			<layoutData>
+                      <l:GridData span="L4 M4 S12" />
+                    </layoutData>
+			</Input>
+			
+			
+			<HBox justifyContent="Center" alignItems="Center">
+			<Button text="Log On" type="Accept" press="onPressLogIn" >
+      <layoutData>
+                      <l:GridData span="L6 M6 S12" />
+                    </layoutData>
+                    </Button>  
+			 <Button text="Cancel" type="Reject" press="onPressCancel" >
+			 <layoutData>
+                      <l:GridData span="L6 M6 S12" linebreak="true"/>
+                    </layoutData>
+			 </Button>
+      
+      <layoutData>
+                      <l:GridData span="L12 M12 S12" />
+                    </layoutData>
+      </HBox>
+      
+			 
+			
+      				
+    
+			
+
+        
+
+
+    </f:content>
+  </f:SimpleForm>
+			
+		</content>
+	</Page>
+</core:View>

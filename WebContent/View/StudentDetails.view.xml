@@ -1,0 +1,104 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
+		controllerName="com.test.Controller.StudentDetails" xmlns:html="http://www.w3.org/1999/xhtml"
+		>
+	<Page title="Student Details" showNavButton="true" navButtonPress="onPressStudentDetailsBack">
+		<content>
+			<IconTabBar class="uxtab" id="iconTabBar" select="handleIconTabBarSelect" >
+      			<items>
+        			<IconTabFilter icon="sap-icon://customer"  text="Student Profile" >
+        			<Panel width="auto" expandable="true" expanded="{editModel>/Panel}" id="basicDetailsPanel">
+    						<headerToolbar>
+    						<Toolbar>
+    						    <Title text="Basic Details"/>
+    							<ToolbarSpacer/><ToolbarSpacer/>
+    							
+    							<Button text="Edit" press="onPressEdit" type="Emphasized" 
+    							visible="{editModel>/EditButton}"/>
+    						</Toolbar>
+    						</headerToolbar>
+    						<content>
+						<f:SimpleForm id="view.Login.Login"
+                   class="login loginbox"
+                   minWidth="1024"
+                   maxContainerCols="2"
+                   editable="false"
+                   layout="ResponsiveGridLayout"
+                   labelSpanL="2"
+                   labelSpanM="2"
+                   emptySpanL="1"
+                   emptySpanM="1"
+                   columnsL="1"
+                   columnsM="1">
+
+    					<f:content >
+    					
+    						<Label text="Student ID">
+					 			<layoutData>
+                      				<l:GridData span="L2 M2 S12" linebreak="true"/>
+                    			</layoutData>
+							</Label>
+							<Input editable="{editModel>/EditField}">
+								<layoutData>
+					                <l:GridData span="L4 M4 S12" />
+					            </layoutData>
+							</Input>
+								
+			
+							<Label text="First Name">
+								<layoutData>
+                      				<l:GridData span="L2 M2 S12" linebreak="true" />
+                    			</layoutData>
+							</Label>
+							<Input editable="{editModel>/EditField}">
+								<layoutData>
+                      				<l:GridData span="L2 M2 S12" />
+                    			</layoutData>
+							</Input>
+							
+							<Label text="Middle Name">
+								<layoutData>
+                      				<l:GridData span="L2 M2 S12"  />
+                    			</layoutData>
+							</Label>
+							<Input editable="{editModel>/EditField}">
+								<layoutData>
+                      				<l:GridData span="L2 M2 S12" />
+                    			</layoutData>
+							</Input>
+							
+							<Label text="Last Name">
+					 			<layoutData>
+                      				<l:GridData span="L2 M2 S12" />
+                    			</layoutData>
+							</Label>
+							<Input editable="{editModel>/EditField}">
+								<layoutData>
+					                <l:GridData span="L2 M2 S12" />
+					            </layoutData>
+							</Input>
+							
+							
+							
+    					</f:content>
+    				</f:SimpleForm>		
+    				</content>
+							<layoutData>
+					                <l:GridData span="L12 M12 S12" />
+					            </layoutData>
+							</Panel>	
+		
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+				<footer>
+<Bar>
+<contentRight>
+<Button id="save" text="Save" type="Emphasized" press="handleSavePress" visible="{editModel>/SaveButton}"/>
+</contentRight>
+</Bar>
+</footer>
+		
+	</Page>
+</core:View>

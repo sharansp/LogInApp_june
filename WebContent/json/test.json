@@ -1,0 +1,81 @@
+{
+	"SalesOrder": [
+		{
+			"Concept":"SAP UI5 Basics",
+			"key": "0",
+			"drill": [{
+				"theory": "Routing",
+				"icon":"map-2",
+				"questions":[{
+				"1":"Where in the application we define Routing",
+				"2":"Controller code to route to a specific view",
+				"3":"Controller code to route to a specific view with parameters",
+				"4":"To make parameters mandatory for routing",
+				"5":"Controller code to catch the parameter values once routing is done",
+				"6":"Method which catches the parameter values once routing is done",
+				"7":"Define Config, Route and target",
+				"8":"Parameters to set up routing in manifest.json",
+				"9":"File in which we plug in the manifest.json",
+				"10":"File in which we initialize the router and the code for it",
+				"11":"Transition types in routing and how do we define them",
+				"12":"To set up page not found 404",
+				"13":"To navigate back to previous page using routing",
+				"14":"To navigate back to previous page using previous history",
+				"15":"To navigate without using # tag",
+				"16":"To bookmark using Routing",
+				"17":"Routing vs Event Bus",
+				"18":"Can we route from a xml view to a JS view or vice versa"
+				}]
+			},
+			{
+				"theory":"Binding",
+				"icon":"map-2"
+			},{
+				"theory":"Model",
+				"icon":"map-2"
+			},
+			{
+				"theory":"Views",
+				"icon":"map-2"
+			},
+			{
+				"theory":"Fragment",
+				"icon":"map-2"
+			},
+			{
+				"theory":"App Specific"
+			},
+			{
+				"theory":"Control Specific"
+			}
+			]
+	    },
+	    {
+			"Concept":"Javascript",
+			"key": "1",
+			"drill": [{
+				
+			}]
+	    },
+	    {
+			"Concept":"jQuery",
+			"key": "2",
+			"drill": [{
+				
+			}]
+	    },
+	    {
+			"Concept":"oDATA",
+			"key": "3",
+			"drill": [{
+				
+			}]
+	    }
+	
+	]
+	
+
+
+
+
+}

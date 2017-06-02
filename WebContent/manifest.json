@@ -1,0 +1,97 @@
+{
+
+"_version": "0.0.1",
+
+"sap.app":
+
+{
+
+   "name": "com.test",
+
+   "version": "0.0.1",
+
+   "description": "Sample application to understand component.js/json",
+
+    "dependencies": {
+
+   }
+
+},
+
+"sap.ui5": {
+
+ "_version": "1.1.0",
+
+ "rootView": "com.test.View.App",
+
+ "dependencies": {
+
+  "minUI5Version": "1.30",
+
+  "libs": {
+
+ "sap.m": {}
+
+  }
+
+ 
+
+} ,
+"resources": {
+            "css": [
+                 
+            ]
+      },
+      
+"routing": {
+	  "config": {
+		"routerClass": "sap.m.routing.Router",
+		"viewType": "XML",
+		"viewPath": "com.test.View",
+		"controlId": "app",
+		"controlAggregation": "pages"
+	  },
+	  "routes": [
+		{
+		  "pattern": "",
+		  "name": "overview",
+		  "target": "overview"
+		},
+		{
+		  "pattern": "StudentDetails",
+		  "name": "StudentDetails",
+		  "target": "StudentDetails"
+		},
+		{
+		  "pattern": "StudentSessions/:IV:",
+		  "name": "StudentSessions",
+		  "target": "StudentSessions"
+		},
+		{
+		  "pattern": "Questions/:obj1:/:obj2:",
+		  "name": "Questions",
+		  "target": "Questions"
+		}
+		
+	  ],
+	  "targets": {
+		"overview": {
+		  "viewName": "LogIn"
+		},
+		"StudentDetails": {
+		  "viewName": "StudentDetails"
+		},
+		"StudentSessions": {
+		  "viewName": "StudentSessions"
+		},
+		"Questions": {
+		  "viewName": "QandA"
+		}
+	  }
+	}      
+
+}
+
+
+
+ }
