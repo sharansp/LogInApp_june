@@ -33,10 +33,17 @@ sap.ui.controller("com.test.Controller.QandA", {
 						 listId.setModel(model);
 						 listId.bindAggregation("items", "/SalesOrder/"+key+"/drill/"+j+"/questions", oItemSelectTemplate);
 						// model.refresh();
+						 break;
 					}
 				}
 			}
 		}
+		
+		var listLen=listId.getItems().length,i=5;
+		for(i;i<listLen;i++){
+			listId.getItems()[i].setVisible(false);
+		}
+		
 	},
 	handleBackButton: function(){
 		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
