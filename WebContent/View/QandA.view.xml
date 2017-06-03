@@ -4,7 +4,16 @@
 		<content>
 			<List id="idListQuestion"
 								mode="SingleSelectMaster" itemPress="handleList">
-            </List>								
+            </List>	
+            
+            
+            
+            
+            
+            <HBox justifyContent="Center" alignItems="Center">
+			     <Button id="idLeftNav" icon="sap-icon://navigation-left-arrow"/>	
+                 <Button id="idRightNav" icon="sap-icon://navigation-right-arrow"/>	
+            </HBox>					
 		</content>
 	</Page>
 </core:View>

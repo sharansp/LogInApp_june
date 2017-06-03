@@ -43,6 +43,7 @@ sap.ui.controller("com.test.Controller.QandA", {
 		for(i;i<listLen;i++){
 			listId.getItems()[i].setVisible(false);
 		}
+		this.getView().byId('idLeftNav').setEnabled(false);
 		
 	},
 	handleBackButton: function(){
