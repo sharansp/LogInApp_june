@@ -11,8 +11,8 @@
             
             
             <HBox justifyContent="Center" alignItems="Center">
-			     <Button id="idLeftNav" icon="sap-icon://navigation-left-arrow"/>	
-                 <Button id="idRightNav" icon="sap-icon://navigation-right-arrow"/>	
+			     <Button id="idLeftNav" icon="sap-icon://navigation-left-arrow" press="handleOnDemandLoadLeft"/>	
+                 <Button id="idRightNav" icon="sap-icon://navigation-right-arrow" press="handleOnDemandLoadRight"/>	
             </HBox>					
 		</content>
 	</Page>

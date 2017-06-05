@@ -43,12 +43,92 @@ sap.ui.controller("com.test.Controller.QandA", {
 		for(i;i<listLen;i++){
 			listId.getItems()[i].setVisible(false);
 		}
+		this.listVisibleID=5;
 		this.getView().byId('idLeftNav').setEnabled(false);
 		
 	},
 	handleBackButton: function(){
 		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 		oRouter.navTo("StudentSessions");
+	},
+	handleOnDemandLoadRight: function(evt){
+		if(this.listVisibleID >= 5)
+			this.getView().byId('idLeftNav').setEnabled(true);
+		var listId=this.getView().byId('idListQuestion');
+		var i=this.listVisibleID-5,f=0,j=0;
+		var listLen=0;
+		if(this.listVisibleID+5 > listId.getItems().length){
+			listLen=listId.getItems().length
+		}
+		else{
+			listLen=this.listVisibleID+5;
+		}
+		for(i;i<listLen;i++){
+			f=f+1;
+			if(f > 5 && f <= 10 && listId.getItems()[i].getVisible()==false){
+				listId.getItems()[i].setVisible(true);
+				j++;
+			}
+				
+			else if(f <= 5 && listId.getItems()[i].getVisible()==true)		
+			listId.getItems()[i].setVisible(false);
+			
+			
+		}
+		if(this.listVisibleID+5 <= listLen)
+			this.listVisibleID=this.listVisibleID+5;
+		else if(this.listVisibleID+5 > listLen){
+			this.listVisibleID=listLen;
+			this.getView().byId('idRightNav').setEnabled(false);
+		}
+			
+	},
+	handleOnDemandLoadLeft: function(evt){
+		
+		
+		this.getView().byId('idRightNav').setEnabled(true);
+		var listId=this.getView().byId('idListQuestion');
+		var listLen=listId.getItems().length;
+		
+		
+		
+		if(this.listVisibleID >=  listLen){
+			this.listVisibleID=listLen;
+		}
+		if(this.listVisibleID >= 5)
+			this.getView().byId('idLeftNav').setEnabled(true);
+		
+		var i=listLen-1,f=0,j=0;
+		for(i;i>=0;i--){
+			if(listId.getItems()[i].getVisible()==true){
+				listId.getItems()[i].setVisible(false);
+			    f=1;
+			}
+			else if(listId.getItems()[i].getVisible()==false && f == 1 && j < 5){
+				listId.getItems()[i].setVisible(true);
+				j++;
+			}
+				
+		}
+		
+		
+		if(!(this.listVisibleID%5)){
+			if(this.listVisibleID < listLen){
+			//	this.getView().byId('idRightNav').setEnabled(false);
+				this.listVisibleID=this.listVisibleID-5;
+			}
+		}
+		else{
+			this.listVisibleID=this.listVisibleID-(listLen%5);
+		}
+		/*else{
+			if(listLen-(listLen%5) < this.listVisibleID){
+				this.getView().byId('idRightNav').setEnabled(true);
+				this.listVisibleID=this.listVisibleID-(listLen%5);
+			}
+		}*/
+		if(this.listVisibleID <= 5)
+			this.getView().byId('idLeftNav').setEnabled(false);	
 	}
 
 /**
