@@ -13,7 +13,37 @@
             <HBox justifyContent="Center" alignItems="Center">
 			     <Button id="idLeftNav" icon="sap-icon://navigation-left-arrow" press="handleOnDemandLoadLeft"/>	
                  <Button id="idRightNav" icon="sap-icon://navigation-right-arrow" press="handleOnDemandLoadRight"/>	
-            </HBox>					
+            </HBox>	
+            
+            <HBox justifyContent="Center" alignItems="Center">
+			     <Text id="idAnswer" text=""/>	
+            </HBox>	
+           <!--  <NavContainer
+			id="navCon"
+			width="98%"
+			height="16em"
+			class="navContainerControl sapUiSmallMarginBottom">
+			<Page
+				id="p1"
+				title="Page 1" >
+				<footer><Toolbar><Button text="Action 1" /></Toolbar></footer>
+			</Page>
+			<Page
+				id="p2"
+				title="Page 2" >
+				<footer><Toolbar><Button text="Action 2" /></Toolbar></footer>
+			</Page>
+			<Page
+				id="p3"
+				title="Page 3" >
+				<footer><Toolbar><Button text="Action 3" /></Toolbar></footer>
+			</Page>
+			<Page
+				id="p4"
+				title="Page 4" >
+				<footer><Toolbar><Button text="Action 4" /></Toolbar></footer>
+			</Page>
+		</NavContainer>	 -->			
 		</content>
 	</Page>
 </core:View>

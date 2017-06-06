@@ -7,7 +7,10 @@
 				"theory": "Routing",
 				"icon":"map-2",
 				"questions":[
-				{"question":"Where in the application we define Routing"},
+				{
+					"question":"Where in the application we define Routing",
+					"answer":"Where in the application we define Routing"
+				},
 				{"question":"Controller code to route to a specific view"},
 				{"question":"Controller code to route to a specific view with parameters"},
 				{"question":"To make parameters mandatory for routing"},

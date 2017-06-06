@@ -58,7 +58,7 @@ sap.ui.controller("com.test.Controller.QandA", {
 		var i=this.listVisibleID-5,f=0,j=0;
 		var listLen=0;
 		if(this.listVisibleID+5 > listId.getItems().length){
-			listLen=listId.getItems().length
+			listLen=listId.getItems().length;
 		}
 		else{
 			listLen=this.listVisibleID+5;
@@ -129,7 +129,16 @@ sap.ui.controller("com.test.Controller.QandA", {
 		}*/
 		if(this.listVisibleID <= 5)
 			this.getView().byId('idLeftNav').setEnabled(false);	
-	}
+	},
+	handleList: function(evt){
+		
+		var path = evt.oSource.getSelectedContexts()[0].sPath;
+		var oModel = evt.oSource.getModel()
+		var ans = oModel.getProperty(path)
+		var textAreaAns = this.getView().byId('idAnswer')
+		textAreaAns.setText(ans.answer);
+	},
+	//itemPress
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

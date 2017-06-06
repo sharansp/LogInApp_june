@@ -6,7 +6,7 @@ sap.ui.controller("com.test.Controller.LogIn", {
 * @memberOf View.LogIn
 */
 	onInit: function() {
-		setInterval(this.onPressChangeBG,10000);
+		//setInterval(this.onPressChangeBG,10000);
 	},
 	
 	onPressChangeBG: function(){
