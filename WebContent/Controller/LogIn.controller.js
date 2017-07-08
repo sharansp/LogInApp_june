@@ -7,6 +7,8 @@ sap.ui.controller("com.test.Controller.LogIn", {
 */
 	onInit: function() {
 		//setInterval(this.onPressChangeBG,10000);
+		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+		this.oRouter = oRouter;
 	},
 	
 	onPressChangeBG: function(){
@@ -14,12 +16,10 @@ sap.ui.controller("com.test.Controller.LogIn", {
 		appId.setBackgroundImage("Images/"+Math.floor(Math.random()*30)+".jpg");
 	},
 	onPressLogIn: function(evt){
-		
-		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 		if(this.getView().byId('RB1-2').getSelected())
-			oRouter.navTo("StudentSessions");
+			this.oRouter.navTo("StudentSessions");
 		else if(this.getView().byId('RB1-1').getSelected())
-		oRouter.navTo("StudentDetails");
+			this.oRouter.navTo("StudentDetails");
 		else
 			sap.m.MessageToast.show("Kuch toh Select Kar Bhai", {
 			    duration: 3000,                  // default
@@ -53,7 +53,27 @@ sap.ui.controller("com.test.Controller.LogIn", {
 		    animationDuration: 1000,         // default
 		    closeOnBrowserNavigation: true   // default
 		});
-	}
+	},
+	
+	handleResponsivePopoverPress: function (oEvent) {
+		if (! this._oPopover) {
+			this._oPopover = sap.ui.xmlfragment("com.test.fragments.Color_PopOver", this);
+			this._oPopover.bindElement("/ProductCollection/0");
+			this.getView().addDependent(this._oPopover);
+		}
+
+		this._oPopover.openBy(oEvent.getSource());
+	},
+	
+	attachChangeColorPicker: function (oEvent) {
+		var appId = sap.ui.getCore().byId("__xmlview0--app");
+		appId.setBackgroundImage("");
+		appId.setBackgroundColor(oEvent.getParameter('colorString'));
+	},
+	
+	navToDashBoard: function(oEvent) {
+		this.oRouter.navTo("DashBoard");
+	},
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

@@ -1,0 +1,40 @@
+
+@CHARSET "ISO-8859-1";
+
+.dbIcon {
+        	margin-left:570px;
+        	
+        }
+        
+.tileClass {
+        	margin-left:25px;
+        	margin-top:25px;
+        	margin-bottom:25px;
+        	background-size:cover !important;
+        }
+        
+.kc_fab_main_btn{
+  background-color:#F44336;
+  width:60px;
+  height:60px;
+  border-radius:100%;
+  background:#F44336;
+  border:none;
+  outline:none;
+  color:#FFF;
+  font-size:36px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition:.3s;  
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.feedbackClass {
+    height: 20px;
+    width: 20px;
+    padding: 4px;
+    margin: 4px;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    border-radius: 20px;
+}

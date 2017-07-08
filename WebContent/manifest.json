@@ -71,6 +71,11 @@
 		  "pattern": "Questions/:obj1:/:obj2:",
 		  "name": "Questions",
 		  "target": "Questions"
+		},
+		{
+		  "pattern": "DashBoard",
+		  "name": "DashBoard",
+		  "target": "DashBoard"
 		}
 		
 	  ],
@@ -86,6 +91,10 @@
 		},
 		"Questions": {
 		  "viewName": "QandA"
+		},
+		"DashBoard": {
+		  "viewName": "DashBoard",
+		  "transition":"flip"
 		}
 	  }
 	}      
