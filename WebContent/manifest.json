@@ -76,6 +76,11 @@
 		  "pattern": "DashBoard",
 		  "name": "DashBoard",
 		  "target": "DashBoard"
+		},
+		{
+		  "pattern": "Games",
+		  "name": "Games",
+		  "target": "Games"
 		}
 		
 	  ],
@@ -94,6 +99,10 @@
 		},
 		"DashBoard": {
 		  "viewName": "DashBoard",
+		  "transition":"flip"
+		},
+		"Games": {
+		  "viewName": "Games",
 		  "transition":"flip"
 		}
 	  }

@@ -1,46 +1,13 @@
 jQuery.sap.require("com.test.Generic.Common");
 
-sap.ui.controller("com.test.Controller.DashBoard", {
+sap.ui.controller("com.test.Controller.Games", {
 
 
 	
 	
 	onInit : function (evt) {
 		
-		var oModel = new sap.ui.model.json.JSONModel();
-        oModel.setData(oModel.loadData("json/DashBoardTiles.json"));
-		this.getView().setModel(oModel);
-		oModel.refresh();
-		var that = this;
-		
-		 var idContainer=this.getView().byId('idDBContainer');
-		 var oItemSelectTemplate = new sap.m.StandardTile({
-		               title: "{title}",
-		               icon:"{icon}",
-		   				type:"{type}",
-		   				number:"{number}",
-		   				numberUnit:"{numberUnit}",
-		   				title:"{title}",
-		   				info:"{info}",
-		   				infoState:"{infoState}",
-		   				press:function(evt){
-		   					debugger
-		   					var title = evt.getSource().getTitle();
-		   					title = title.split(" ").join("-").toLowerCase();
-							var oRouter = sap.ui.core.UIComponent.getRouterFor(that);
-							oRouter.navTo("Games");
-						},
-		           });
-
-		 idContainer.setModel(oModel);
-		 idContainer.bindAggregation("tiles", "/TileCollection", oItemSelectTemplate);
-		oModel.refresh();
-		oModel.attachRequestCompleted(function(){
-			console.log(oModel.getData());
-			that.getView().setModel(oModel);
-			oModel.refresh();
-		});
-	},
+			},
 	
 	onPressStudentDetailsBack: function(){
 		jQuery.sap.require("com.test.Generic.Common");

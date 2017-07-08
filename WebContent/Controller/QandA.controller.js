@@ -15,6 +15,7 @@ sap.ui.controller("com.test.Controller.QandA", {
 		var val = oEvent.mParameters.arguments.obj2;
 		var listId=this.getView().byId('idListQuestion');
 		var model=sap.ui.getCore().getModel();
+		if(model)
 		var modelData=model.getData();
 		
 		var i=0,j=0,len=modelData.SalesOrder.length;

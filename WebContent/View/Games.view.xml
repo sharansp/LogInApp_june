@@ -1,0 +1,11 @@
+<core:View xmlns:core="sap.ui.core" 
+			xmlns:mvc="sap.ui.core.mvc" 
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+		controllerName="com.test.Controller.Games" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Games" showNavButton="true" navButtonPress="onPressStudentDetailsBack">
+		 
+		
+	</Page>
+</core:View>

@@ -1,9 +1,10 @@
 {
 	"TileCollection" : [
 		{
-			"icon" : "sap-icon://hint",
+			"icon" : "sap-icon://energy-saving-lightbulb",
 			"type" : "Monitor",
-			"title" : "Tiles: a modern UI design pattern for overview & navigation."
+			"number" : "1",
+			"title" : "Play A Game!"
 		},
 		{
 			"icon" : "sap-icon://inbox",
