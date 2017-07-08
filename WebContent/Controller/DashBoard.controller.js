@@ -1,6 +1,42 @@
+
 sap.ui.controller("com.test.Controller.DashBoard", {
 
-/**
+
+	
+	
+	onInit : function (evt) {
+		
+		var oModel = new sap.ui.model.json.JSONModel();
+        oModel.setData(oModel.loadData("json/DashBoardTiles.json"));
+		this.getView().setModel(oModel);
+		oModel.refresh();
+		var that = this;
+		
+		 var idContainer=this.getView().byId('idDBContainer');
+		 var oItemSelectTemplate = new sap.m.StandardTile({
+		               title: "{title}",
+		               icon:"{icon}",
+		   				type:"{type}",
+		   				number:"{number}",
+		   				numberUnit:"{numberUnit}",
+		   				title:"{title}",
+		   				info:"{info}",
+		   				infoState:"{infoState}"
+		           });
+
+		 idContainer.setModel(oModel);
+		 idContainer.bindAggregation("tiles", "/TileCollection", oItemSelectTemplate);
+		oModel.refresh();
+		oModel.attachRequestCompleted(function(){
+			debugger
+			console.log(oModel.getData());
+			that.getView().setModel(oModel);
+			oModel.refresh();
+		});
+	},
+	
+	
+	/**
 * Called when a controller is instantiated and its View controls (if available) are already created.
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf View.StudentSessions
