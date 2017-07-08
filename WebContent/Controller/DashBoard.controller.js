@@ -1,3 +1,4 @@
+jQuery.sap.require("com.test.Generic.Common");
 
 sap.ui.controller("com.test.Controller.DashBoard", {
 
@@ -28,13 +29,18 @@ sap.ui.controller("com.test.Controller.DashBoard", {
 		 idContainer.bindAggregation("tiles", "/TileCollection", oItemSelectTemplate);
 		oModel.refresh();
 		oModel.attachRequestCompleted(function(){
-			debugger
 			console.log(oModel.getData());
 			that.getView().setModel(oModel);
 			oModel.refresh();
 		});
 	},
 	
+	onPressStudentDetailsBack: function(){
+		jQuery.sap.require("com.test.Generic.Common");
+		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+		oRouter.navTo("overview");
+	}
+
 	
 	/**
 * Called when a controller is instantiated and its View controls (if available) are already created.

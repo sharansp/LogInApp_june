@@ -65,6 +65,7 @@ sap.ui.controller("com.test.Controller.StudentSessions", {
 		oRouter.navTo("StudentSessions",{IV:key[1]});
 	},
 	onPressStudentDetailsBack: function(){
+		
 		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 		oRouter.navTo("overview");
 	}
