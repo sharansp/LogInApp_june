@@ -1,0 +1,6 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.test.Controller.DashBoard" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Dash Board" showNavButton="true" navButtonPress="onPressStudentDetailsBack">
+		
+	</Page>
+</core:View>
