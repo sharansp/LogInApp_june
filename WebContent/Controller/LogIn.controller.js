@@ -9,11 +9,13 @@ sap.ui.controller("com.test.Controller.LogIn", {
 		//setInterval(this.onPressChangeBG,10000);
 		var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 		this.oRouter = oRouter;
+		var appId = sap.ui.getCore().byId("__xmlview0--app");
+		this.appId = appId;
 	},
 	
 	onPressChangeBG: function(){
-		var appId = sap.ui.getCore().byId("__xmlview0--app");
-		appId.setBackgroundImage("Images/"+Math.floor(Math.random()*30)+".jpg");
+		//var appId = sap.ui.getCore().byId("__xmlview0--app");
+		this.appId.setBackgroundImage("Images/"+Math.floor(Math.random()*30)+".jpg");
 	},
 	onPressLogIn: function(evt){
 		if(this.getView().byId('RB1-2').getSelected())
@@ -66,13 +68,19 @@ sap.ui.controller("com.test.Controller.LogIn", {
 	},
 	
 	attachChangeColorPicker: function (oEvent) {
-		var appId = sap.ui.getCore().byId("__xmlview0--app");
-		appId.setBackgroundImage("");
-		appId.setBackgroundColor(oEvent.getParameter('colorString'));
+		//var appId = sap.ui.getCore().byId("__xmlview0--app");
+		this.appId.setBackgroundImage("");
+		this.appId.setBackgroundColor(oEvent.getParameter('colorString'));
 	},
 	
 	navToDashBoard: function(oEvent) {
 		this.oRouter.navTo("DashBoard");
+	},
+	handleTransitionBGColor: function(oEvent) {
+		debugger;
+		
+		this.appId.setBackgroundImage("");
+		this.appId.setBackgroundColor(oEvent.getParameter('colorString'));
 	},
 
 /**

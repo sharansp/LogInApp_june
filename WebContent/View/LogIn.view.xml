@@ -4,6 +4,7 @@
 		<headerContent>
 			<Button icon="sap-icon://background" tooltip="Change BackGround Wallpaper" press="onPressChangeBG"/>
 			<Button icon="Images/icons/color_picker.ico" tooltip="Change BackGround Color" press="handleResponsivePopoverPress"/>
+			<Button icon="sap-icon://background" tooltip="Transition BackGround Color" press="handleTransitionBGColor"/>
 		</headerContent>
 		
 		<content>
