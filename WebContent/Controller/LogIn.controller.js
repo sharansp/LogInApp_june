@@ -116,40 +116,51 @@ sap.ui.controller("com.test.Controller.LogIn", {
 		
 		circleRadii = [40, 20, 10];
 		var jsonCircles = [
-			  { "x_axis": 30, "y_axis": 30, "radius": 1, "color" : "green"},
-			  { "x_axis": 70, "y_axis": 70, "radius": 2, "color" : "purple"},
-			  { "x_axis": 110, "y_axis": 100, "radius": 3, "color" : "red"}];
+			  { "x_axis": 30, "y_axis": 30, "radius": 5, "color" : "green"},
+			  { "x_axis": 70, "y_axis": 70, "radius": 5, "color" : "purple"},
+			  { "x_axis": 90, "y_axis": 80, "radius": 5, "color" : "red"}];
 		
-		var lineData = [ { "x": 1,   "y": 5},  { "x": 20,  "y": 20},
-			                  { "x": 40,  "y": 10}, { "x": 60,  "y": 40},
-			                  { "x": 80,  "y": 5},  { "x": 100, "y": 60}];
+		var lineData = [ { "x": 0,   "y": 0},  { "x": 0,  "y": 100},
+			                  { "x": 0,  "y": 100}, { "x": 100,  "y": 100},
+			                 ];
 		 
+		var lineDataPlot = [ { "x": 1,   "y": 5},  { "x": 20,  "y": 20},
+						                  { "x": 40,  "y": 10}, { "x": 60,  "y": 40},
+						                  { "x": 80,  "y": 5},  { "x": 100, "y": 60}];
 		 var svgContainer = d3.select(id).append("svg")
-		                                     .attr("width", 1200)
-		                                     .attr("height", 1000);
+		                                     .attr("width", 500)
+		                                     .attr("height", 500);
 		 
-		 var circles = svgContainer.selectAll("circle")
-		                           .data(jsonCircles)
+		 var circleGroup = svgContainer.append("g").attr("transform", "translate(100,100)");
+		 
+		 var circles = circleGroup.selectAll("circle")
+		                           .data(lineDataPlot)
 		                           .enter()
 		                          .append("circle");
 		 
 		 var lineFunction = d3.svg.line()
-		                        .x(function(d) { return d.x_axis; })
-		                         .y(function(d) { return d.y_axis; })
-		                         .interpolate("linear");
+		                        .x(function(d) { return d.x; })
+		                         .y(function(d) { return d.y; })
+		                         .interpolate("basis");
 		 
-		var path =  svgContainer.append("path")
-		                         .attr("d",lineFunction(jsonCircles))
-		                         .attr("stroke","black")
+		var path =  circleGroup.append("path")
+		                         .attr("d",lineFunction(lineData))
+		                         .attr("stroke","YELLOW")
 		                         .attr("stroke-width","3")
 		                         .attr("fill", "none");
+		
+		var drawPath =  circleGroup.append("path")
+        .attr("d",lineFunction(lineDataPlot))
+        .attr("stroke","green")
+        .attr("stroke-width","3")
+        .attr("fill", "none");
 		                         
 		
 		var circleAttributes = circles
-		                       .attr("cx",  function (d) { return d.x_axis; })
-		                       .attr("cy",  function (d) { return d.y_axis; })
-		                       .attr("r", function (d) { return d.radius*5; })
-		                       .style("fill",  function (d) { return d.color; });
+		                       .attr("cx",  function (d) { return d.x; })
+		                       .attr("cy",  function (d) { return d.y; })
+		                       .attr("r", function (d) { return '5'; })
+		                       .style("fill",  function (d) { return 'black'; });
 		
 		/*a = d3.select(id);
 		a.append("svg").attr("width", 50).attr("height", 50)
