@@ -194,6 +194,50 @@ sap.ui.controller("com.test.Controller.LogIn", {
 		 .data(theData)
 		  .enter()
 		 .append("p")*/
+		
+		//Animation tween
+		var animID  = "#__xmlview1--idSvgPanelAnimation";
+		 var container = d3.select(animID);
+		
+		var svg = container.append("svg")
+		.attr("width", 5000).attr("height", 5000)
+		.append("circle");
+		
+		var circle = svg.attr("cx", 25)
+		.attr("cy", 25)
+		.attr("r", 25)
+		//.on("mouseover", ()=>alert("you"))
+		.style("fill", "purple");
+		
+		circle
+		.transition().duration(3000)
+		// Add the tween function to the transition
+		//.tween('track-position', tracker)
+		.attr("cx", 500)
+		.attr("cy", 25)
+		.transition().duration(3000)
+		.attr("cx", 25)
+		.attr("cy", 25)
+			;
+//          .on("mouseout", handleMouseOut);
+		
+		/*var tracker = function(){
+			  var lastX = 0;
+			  var lastY = 0;
+			   
+			  // This function returned by tracker is what will execute at each 'tick'
+			  // in the transition animation
+			  return function(){
+			    var curX = Math.floor(circle.attr('cx'));
+			    var curY = Math.floor(circle.attr('cy'));
+			    // only update if circle has moved at least a pixel in x and y
+			    // directions'
+			    console.log(curX,curY)
+			    if(curX !== lastX && curY !== lastY){
+			      d3.select('.position-track').text("X: " + curX + ", Y: " + curY);
+			    }
+			  }
+			}*/
 	},
 
 /**
