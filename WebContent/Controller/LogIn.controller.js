@@ -1,3 +1,4 @@
+jQuery.sap.require("sap/ui/thirdparty/d3");
 sap.ui.controller("com.test.Controller.LogIn", {
 
 /**
@@ -78,9 +79,21 @@ sap.ui.controller("com.test.Controller.LogIn", {
 	},
 	handleTransitionBGColor: function(oEvent) {
 		debugger;
-		
-		this.appId.setBackgroundImage("");
-		this.appId.setBackgroundColor(oEvent.getParameter('colorString'));
+		function makeWorker() {
+			  let name = "Pete";
+
+			  return function() {
+			    alert(name);
+			  };
+			}
+
+			let name = "John";
+
+			// create a function
+			let work = makeWorker();
+
+			// call it
+			work();
 	},
 
 /**
@@ -97,9 +110,57 @@ sap.ui.controller("com.test.Controller.LogIn", {
 * This hook is the same one that SAPUI5 controls get after being rendered.
 * @memberOf View.LogIn
 */
-//	onAfterRendering: function() {
-//
-//	},
+	onAfterRendering: function() {
+		var id="#__xmlview1--idSvgPanel";
+		
+		
+		circleRadii = [40, 20, 10];
+		var jsonCircles = [
+			  { "x_axis": 30, "y_axis": 30, "radius": 1, "color" : "green"},
+			  { "x_axis": 70, "y_axis": 70, "radius": 2, "color" : "purple"},
+			  { "x_axis": 110, "y_axis": 100, "radius": 3, "color" : "red"}];
+		
+		var lineData = [ { "x": 1,   "y": 5},  { "x": 20,  "y": 20},
+			                  { "x": 40,  "y": 10}, { "x": 60,  "y": 40},
+			                  { "x": 80,  "y": 5},  { "x": 100, "y": 60}];
+		 
+		 var svgContainer = d3.select(id).append("svg")
+		                                     .attr("width", 1200)
+		                                     .attr("height", 1000);
+		 
+		 var circles = svgContainer.selectAll("circle")
+		                           .data(jsonCircles)
+		                           .enter()
+		                          .append("circle");
+		 
+		 var lineFunction = d3.svg.line()
+		                        .x(function(d) { return d.x_axis; })
+		                         .y(function(d) { return d.y_axis; })
+		                         .interpolate("linear");
+		 
+		var path =  svgContainer.append("path")
+		                         .attr("d",lineFunction(jsonCircles))
+		                         .attr("stroke","black")
+		                         .attr("stroke-width","3")
+		                         .attr("fill", "none");
+		                         
+		
+		var circleAttributes = circles
+		                       .attr("cx",  function (d) { return d.x_axis; })
+		                       .attr("cy",  function (d) { return d.y_axis; })
+		                       .attr("r", function (d) { return d.radius*5; })
+		                       .style("fill",  function (d) { return d.color; });
+		
+		/*a = d3.select(id);
+		a.append("svg").attr("width", 50).attr("height", 50)
+		.append("circle").attr("cx", 25).attr("cy", 25).attr("r", 25)
+		.style("fill", "purple");
+		
+		var p = d3.select("body").selectAll("p")
+		 .data(theData)
+		  .enter()
+		 .append("p")*/
+	},
 
 /**
 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
