@@ -124,12 +124,16 @@ sap.ui.controller("com.test.Controller.LogIn", {
 			                  { "x": 0,  "y": 100}, { "x": 100,  "y": 100},
 			                 ];
 		 
-		var lineDataPlot = [ { "x": 1,   "y": 5},  { "x": 20,  "y": 20},
-						                  { "x": 40,  "y": 10}, { "x": 60,  "y": 40},
-						                  { "x": 80,  "y": 5},  { "x": 100, "y": 60}];
+		var lineDataPlot = [ { "x": 1,   "y": 5,"color":"green"},  { "x": 20,  "y": 20,"color":"red"},
+						                  { "x": 40,  "y": 10,"color":"green"}, { "x": 60,  "y": 40,"color":"yellow"},
+						                  { "x": 80,  "y": 5,"color":"pink"},  { "x": 100, "y": 60,"color":"red"}];
 		 var svgContainer = d3.select(id).append("svg")
-		                                     .attr("width", 500)
-		                                     .attr("height", 500);
+		                                    .attr("width", '250')
+		                                    .attr("height", '250')
+		                                     .call(d3.behavior.zoom().on("zoom", function (e) {
+		                                    	 //svgContainer.transition().duration(500).attr('transform', 'translate(' + zoom.translate() + ') scale(' + zoom.scale() + ')')
+		                                    	 svgContainer.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+      }));
 		 
 		 var circleGroup = svgContainer.append("g").attr("transform", "translate(100,100)");
 		 
@@ -139,9 +143,9 @@ sap.ui.controller("com.test.Controller.LogIn", {
 		                          .append("circle");
 		 
 		 var lineFunction = d3.svg.line()
-		                        .x(function(d) { return d.x; })
-		                         .y(function(d) { return d.y; })
-		                         .interpolate("basis");
+		                        .x(function(d) { return d.x*1; })
+		                         .y(function(d) { return d.y*1; })
+		                         .interpolate("step-down");
 		 
 		var path =  circleGroup.append("path")
 		                         .attr("d",lineFunction(lineData))
@@ -149,18 +153,37 @@ sap.ui.controller("com.test.Controller.LogIn", {
 		                         .attr("stroke-width","3")
 		                         .attr("fill", "none");
 		
-		var drawPath =  circleGroup.append("path")
+		var drawPath =  circleGroup.selectAll("path")
+        .data(lineDataPlot)
+        .enter().append("path")
         .attr("d",lineFunction(lineDataPlot))
-        .attr("stroke","green")
+        .attr("stroke",function (d) {
+        	return d.color; 
+        	})
         .attr("stroke-width","3")
         .attr("fill", "none");
 		                         
 		
 		var circleAttributes = circles
-		                       .attr("cx",  function (d) { return d.x; })
-		                       .attr("cy",  function (d) { return d.y; })
+		                       .attr("cx",  function (d) { return d.x*1; })
+		                       .attr("cy",  function (d) { return d.y*1; })
 		                       .attr("r", function (d) { return '5'; })
 		                       .style("fill",  function (d) { return 'black'; });
+		
+		//Add the SVG Text Element to the svgContainer
+		var text = circleGroup.selectAll("text")
+		                        .data(lineDataPlot)
+		                        .enter()
+		                        .append("text");
+		
+		//Add SVG Text Element Attributes
+		var textLabels = text
+		                 .attr("x", function(d) { return d.x; })
+		                 .attr("y", function(d) { return d.y; })
+		                 .text( function (d) { return d.x+"\t"+d.y;})
+		                 .attr("font-family", "sans-serif")
+		                 .attr("font-size", "8px")
+		                 .attr("fill", "red");
 		
 		/*a = d3.select(id);
 		a.append("svg").attr("width", 50).attr("height", 50)
